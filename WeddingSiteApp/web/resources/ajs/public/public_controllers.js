@@ -1,4 +1,4 @@
-var app = angular.module('wed.controllers', []);
+var app = angular.module('wed.public.controllers', []);
 
 app.controller('MainController',
         ['$scope', 'GiftFactory', 'GoldenBookFactory',
