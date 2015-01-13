@@ -34,6 +34,12 @@ app.controller('GbController',
         ['$scope', 'GoldenBookFactory',
             function ($scope, GBFactory) {             
 
+                
+                $scope.resetForm = function(){
+                    console.log($scope.cur_gb);
+                    $scope.cur_gb = angular.copy({message: "", signature: ""});
+                };
+                
                 $scope.refresh = function () {
                     console.log("refresh");
                     $scope.entries = GBFactory.getAll(function (items) {
@@ -42,10 +48,9 @@ app.controller('GbController',
                 };
 
                 $scope.addEntry = function (entry) {
-                    console.log("added");
                     GBFactory.add(entry, function(){
-                        $scope.cur_gb = {};
                         $scope.refresh();                        
+                        $scope.resetForm();
                     });
                 }
 
@@ -54,11 +59,13 @@ app.controller('GbController',
                 }
                 
                 $scope.isEntryValid = function(gb){
-                    return gb && gb.title && gb.message && gb.signature;
+                    console.log($scope.cur_gb);
+                    return gb && gb.message && gb.signature;
                 }
                  // first load: get data
                 $scope.show_add = false;
                 $scope.order_reversed = true;
+                $scope.cur_gb = {message: ""};
                 $scope.refresh();
                 // init
             }]);
