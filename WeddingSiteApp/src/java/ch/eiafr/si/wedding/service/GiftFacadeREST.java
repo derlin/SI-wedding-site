@@ -39,7 +39,30 @@ public class GiftFacadeREST extends AbstractFacade<Gift> {
     public void create(Gift entity) {
         super.create(entity);
     }
-
+    
+    /*
+    @GET
+    @Path("money")
+    public void createMoneyGift(@PathParam("addedby") String addedBy, @PathParam("value") Float value) {
+        Gift entity = new Gift();
+        entity.setTitle(Gift.MONEY_GIFT_TITLE);
+        entity.setAddedBy(addedBy);
+        entity.setPrice(value);
+        entity.setAvailable(false);
+        super.create(entity);
+    }
+    */
+    
+    @POST
+    @Path("money")
+    @Consumes({"application/xml", "application/json"})
+    public void addMoneyGift(Gift entity) {
+        entity.setTitle(Gift.MONEY_GIFT_TITLE);
+        entity.setAvailable(false);
+        super.create(entity);
+    }
+    
+    
     @PUT
     @Path("{id}")
     @Consumes({"application/xml", "application/json"})

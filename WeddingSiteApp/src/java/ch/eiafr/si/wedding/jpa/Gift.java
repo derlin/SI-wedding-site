@@ -31,6 +31,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Gift implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    public static final String MONEY_GIFT_TITLE = "MONEY";
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -143,7 +146,6 @@ public class Gift implements Serializable {
     }
 
     
-    
     // ----------------------------------------------
     
     @PrePersist
@@ -153,9 +155,11 @@ public class Gift implements Serializable {
     }
 
     @PreUpdate
-    void onPreUpdate() {
+    void onPreUpdate(){
         dateModified = new Date();
+        
     }
+
 
     // ----------------------------------------------
     @Override
