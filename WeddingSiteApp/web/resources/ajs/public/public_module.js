@@ -12,6 +12,10 @@ wedApp.config(['$routeProvider',
         templateUrl: 'partials/_partial_test.html',
         controller: 'MainController'
       }).
+      when('/gb', {
+        templateUrl: 'partials/_golden_book.html',
+        controller: 'GbController'
+      }).
       otherwise({
         redirectTo: '/'
       });

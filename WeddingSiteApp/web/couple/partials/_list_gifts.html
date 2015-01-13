@@ -1,0 +1,61 @@
+<form class="form-horizontal">
+    
+    <div class="form-group">
+        <label for="searchText" class="col-md-1 control-label">Search</label> 
+        <div class="col-md-4">
+            <input id="searchText" class="form-control" ng-model="search.$">
+        </div>
+    </div>
+    <div class="btn-group col-md-4" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" ng-click="search.available = undefined">All</button>
+        <button type="button" class="btn btn-default" ng-click="search.available = true">Still available</button>
+        <button type="button" class="btn btn-default" ng-click="search.available = false">Offered</button>
+    </div>
+    <!--    <div class="form-group">
+            Price range <input type="number" ng-model="search_price_min" /> to 
+            <input type="number" ng-model="search_price_max" />
+        </div>-->
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>From</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+    </thead>
+    <tr ng-repeat="i in gifts| filter:priceFilter: search_price_min:search_price_max | filter: search">
+        <td>{{i.title}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.gifter|| '-' }}</td>
+        <td>
+            <span role="button" confirm ng-click="removeGift(i)" class="close"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></span>  
+        </td>
+        <td>
+            <span role="button" ng-click="editGift(i)" class="close"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></span>  
+        </td>
+
+    </tr>
+</table>
+
+
+<style type="text/css">
+    .gift-item {
+        padding: 4px 10px;
+        margin: 20px 0;
+        border: 1px solid #eee;
+        border-left-width: 5px;
+        border-radius: 3px;
+    } 
+
+    .gift-item .button-bar span {
+        margin: auto 4px;
+    }
+</style>

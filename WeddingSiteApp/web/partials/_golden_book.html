@@ -1,0 +1,36 @@
+<div class='well well-sm'>
+    <bouton class='btn btn-default' ng-click="show_add = !show_add">Leave a comment</bouton>
+    <div ng-include="'partials/_golden_book_add.html'" ng-show='show_add'/>  
+</div> 
+
+<hr />
+
+<div>
+    <span title="newest first" class="glyphicon glyphicon-arrow-down" ng-click="order_reversed = true" aria-hidden="true"></span>
+    <span title="oldest first" class="glyphicon glyphicon-arrow-up" ng-click="order_reversed = false" aria-hidden="true"></span>
+</div>
+
+<div class="gb-entry" 
+     style="" ng-repeat="i in entries| orderBy: 'dateCreated':order_reversed">    
+    <h4>{{i.title}}</h4>
+    <div>
+        {{i.message}}
+    </div>
+    <div class="text-right">{{i.signature}}, 
+        {{ i.dateCreated | date: short }}</div>
+</div>
+
+
+<style type="text/css">
+    .gb-entry {
+        padding: 4px 10px;
+        margin: 20px 0;
+        border: 1px solid #eee;
+        border-left-width: 5px;
+        border-radius: 3px;
+    } 
+
+    .gb-entry .button-bar span {
+        margin: auto 4px;
+    }
+</style>

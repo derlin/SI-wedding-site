@@ -1,12 +1,30 @@
 welcome couple !
 
+
 <div>
-    {{ gifts }}
+    {{ gifts}}
 </div>
 
 <div>
-    {{ gbEntries }}
+    {{ gbEntries}}
+</div>
+<button ng-click="addMoney()">addMoney</button>
+<button ng-click="addGift()">addGift</button>
+
+<hr />
+
+<div class="alert alert-info">
+    <p>       
+        You have currently <strong>{{ gifts.length }} gifts</strong> for a total amount of <strong>{{total | currency:"CHF ":2}}</strong>!  
+    </p>
 </div>
 
 
-<button ng-click="addGift()">add</button>
+<div class="row">
+    <button class="btn btn-default" ng-click="newGift()">add a gift</button>
+</div>
+
+<hr />
+
+<div ng-include src="'partials/_list_gifts.html'"></div>
+<div ng-include src="'partials/_add_popup.html'"></div>
