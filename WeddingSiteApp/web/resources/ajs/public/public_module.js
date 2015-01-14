@@ -8,11 +8,11 @@ var wedApp = angular.module('wed.public',
 wedApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/test', {
-        templateUrl: 'partials/_partial_test.html',
+      when('/gift', {
+        templateUrl: 'partials/_gifts.html',
         controller: 'MainController'
       }).
-      when('/gb', {
+      when('/guestbook', {
         templateUrl: 'partials/_golden_book.html',
         controller: 'GbController'
       }).

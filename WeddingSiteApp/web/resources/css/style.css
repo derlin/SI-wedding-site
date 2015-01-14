@@ -1,3 +1,21 @@
+@media (min-width: 768px) { 
+    .free-gift {
+        float: none;
+    }
+}
+
+.free-gift {
+    width: 25%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    max-width: 10cm;
+    float: left;
+}
+
+.add-gif {
+
+}
+
 #main{
     margin-top: 60px;
     min-height: 500px;

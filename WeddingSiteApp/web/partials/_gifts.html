@@ -1,0 +1,66 @@
+<form class="form-horizontal">
+
+    <div class="form-group">
+        <label for="searchText" class="col-md-1 control-label">Search</label> 
+        <div class="col-md-4">
+            <input id="searchText" class="form-control" ng-model="search.$">
+        </div>
+    </div>
+</form>
+
+<div class="panel panel-info free-gift" ng-repeat="g in gifts| filter: search">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{g.title}}</h3>
+    </div>
+    <div class="panel-body">
+        {{g.description}}
+    </div>
+</div>
+<div class="add-gift">
+    <hr />
+    <form name="giftForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">Titre</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.title" class="form-control" id="inputMs" placeholder="Titre"></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.description" class="form-control" id="inputMs" placeholder="Description"></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.price" class="form-control" id="inputMs" placeholder="Prix"></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">Image</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.imageurl" class="form-control" id="inputMs" placeholder="URL de l'image"></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">De la part de</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.gifter" class="form-control" id="inputMs" placeholder="Nom du donneur  "></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputMs" class="col-sm-2 control-label">De la part de</label>
+            <div class="col-sm-10">
+                <textarea ng-model="cur_gift.addedby" class="form-control" id="inputMs" placeholder="Nom du donneur  "></textarea>            
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" 
+                        ng-click="addGift(cur_gift)">Save</button>
+                <button  type="button" class="btn btn-primary" ng-click="resetForm()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
