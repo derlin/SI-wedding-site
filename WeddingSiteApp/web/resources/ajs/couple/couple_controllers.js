@@ -36,7 +36,7 @@ app.controller('MainController',
                     });
 
                     $scope.gifts = GiftFactory.getAll(function (items) {
-                        console.log("$scope.gifts refreshed.");
+                        console.log("scope.gifts refreshed.");
                         var total = 0;
                         $scope.gifts.forEach(function(g){
                             total += g.price;

@@ -1,5 +1,5 @@
-<form class="form-horizontal">
-    
+<div class="row">
+<form class="form">   
     <div class="form-group">
         <label for="searchText" class="col-md-1 control-label">Search</label> 
         <div class="col-md-4">
@@ -17,7 +17,9 @@
         </div>-->
 
 </form>
+</div>
 
+<hr />
 
 <table class="table">
     <thead>
@@ -26,8 +28,8 @@
             <td>Description</td>
             <td>Price</td>
             <td>From</td>
-            <td>Delete</td>
-            <td>Edit</td>
+            <td></td>
+            <td></td>
         </tr>
     </thead>
     <tr ng-repeat="i in gifts| filter:priceFilter: search_price_min:search_price_max | filter: search">
@@ -36,10 +38,10 @@
         <td>{{i.price}}</td>
         <td>{{i.gifter|| '-' }}</td>
         <td>
-            <span role="button" confirm ng-click="removeGift(i)" class="close"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></span>  
+            <span role="button" confirm ng-click="removeGift(i)" class="close"><span class="pink glyphicon glyphicon-minus" aria-hidden="true"></span></span>  
         </td>
         <td>
-            <span role="button" ng-click="editGift(i)" class="close"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></span>  
+            <span role="button" ng-click="editGift(i)" class="close"><span class="pink glyphicon glyphicon-edit" aria-hidden="true"></span></span>  
         </td>
 
     </tr>

@@ -8,8 +8,8 @@ var wedApp = angular.module('wed.couple',
 wedApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/test', {
-        templateUrl: 'partials/_test.html',
+      when('/manage', {
+        templateUrl: 'partials/body.html',
         controller: 'MainController'
       }).
       otherwise({

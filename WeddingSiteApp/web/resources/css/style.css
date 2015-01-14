@@ -16,7 +16,57 @@
 
 }
 
+/*golden book*/
+.gb-entry {
+    padding: 4px 10px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #FED0EF;
+} 
+
+.gb-entry .button-bar span {
+    margin: auto 4px;
+}
+
+
+/*fixed top*/
 #main{
-    margin-top: 60px;
     min-height: 500px;
+    margin-top:20px;
+}
+body{
+    margin-top: 70px;
+}
+
+
+/* banner */
+.banner {
+   border-bottom: 2px solid #F974CE;
+}
+.banner .text {               
+    margin-top: 30px;
+    font-style: italic;
+    max-width:50%;
+    margin-left:30px;
+}
+
+/*general*/
+
+hr {
+   /*border-color: #F974CE;*/ 
+}
+.pink {
+    color: #F974CE !important;
+}
+
+.well {
+    background-color: #FED0EF; 
+    border-color: #FED0EF; 
+/*    border-color: #F974CE ; */
+}
+.cursive {
+    /* <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'> */
+    font-family: 'Kaushan Script', cursive;
 }
