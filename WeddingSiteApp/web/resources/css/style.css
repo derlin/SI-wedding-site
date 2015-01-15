@@ -43,7 +43,7 @@ body{
 
 /* banner */
 .banner {
-   border-bottom: 2px solid #F974CE;
+   /*border-bottom: 2px solid #F974CE;*/
 }
 .banner .text {               
     margin-top: 30px;
@@ -54,11 +54,16 @@ body{
 
 /*general*/
 
-hr {
-   /*border-color: #F974CE;*/ 
-}
 .pink {
-    color: #F974CE !important;
+    color: #e6017a !important; /* #F974CE !important;*/
+}
+
+.light-pink{
+    color: #ffb8dd;
+}
+
+thead {
+    font-weight: bold;
 }
 
 .well {
@@ -69,4 +74,8 @@ hr {
 .cursive {
     /* <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'> */
     font-family: 'Kaushan Script', cursive;
+}
+
+.well .form-control {
+    border-color: #ffb8dd;
 }

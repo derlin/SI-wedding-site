@@ -31,10 +31,6 @@ app.controller('MainController',
             function ($scope, GiftFactory, GBFactory) {
 
                 $scope.refresh = function () {
-                    $scope.gbEntries = GBFactory.get(function (items) {
-                        console.log("received gbEntries");
-                    });
-
                     $scope.gifts = GiftFactory.getAll(function (items) {
                         console.log("scope.gifts refreshed.");
                         var total = 0;

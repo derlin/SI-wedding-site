@@ -4,7 +4,7 @@
         <title>Our Wedding</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="resources/bootstrap-3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/bootstrap-3.3.1/css/bootstrap.min_1.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/style.css" rel="stylesheet" type="text/css"/>
         <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     </head>
@@ -29,13 +29,7 @@
 
 
         <div class="container">
-            <div class="banner row">
-                <div class='text col-md-8'>
-                    <div class="pink" style='font-size:2em'>Amy and Gen,</div>
-                    <div class="cursive" style="padding-left: 10px; font-size:1.5em">Loving and loved forever!</div>
-                </div>
-                <div class="col-md-4" style="text-align:right"><img src="images/rose-banner.jpg" style="width:100%" /></div>
-            </div>
+            <div ng-include="'partials/banner.html'" ></div>   
             <div id="main" ng-view> </div>
         </div>
 
