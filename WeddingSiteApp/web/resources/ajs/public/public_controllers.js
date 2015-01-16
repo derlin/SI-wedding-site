@@ -15,14 +15,24 @@ app.controller('MainController',
 
                 $scope.addGift = function (gift) {
                     $scope.clicks++;
+                    console.log(gift);
                     //var gift = {"addedBy": "Test" + $scope.clicks, "available": false, "price": 45.34, "title": "Beautiful chair"};
+                    GiftFactory.add(gift, $scope.refresh);
+                    console.log("added");
+                };
+                
+                $scope.addPersonalGift = function (gift) {
+                    $scope.clicks++;
+                    gift.addedBy = gift.gifter;
+                    gift.available = false;
+                    console.log(gift);
                     GiftFactory.add(gift, $scope.refresh);
                     console.log("added");
                 };
 
                 $scope.resetForm = function () {
                     console.log($scope.cur_gift);
-                    $scope.cur_gift = angular.copy({ title: "", description: "", price: "", imageurl: "", gifter: "", addedby: "" });
+                    $scope.cur_gift = angular.copy({ title: "", description: "", price: "", imageurl: "", gifter: ""});
                 };
 
                 // first load: get data
