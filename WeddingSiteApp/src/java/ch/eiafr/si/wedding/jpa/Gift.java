@@ -2,8 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- * 
- * Minimal JSON: 
+ *
+ * Minimal JSON:
  * {"addedBy":"Test","available":false,"id":0,"price":45.34,"title":"Beautiful chair"}
  */
 package ch.eiafr.si.wedding.jpa;
@@ -31,9 +31,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Gift implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     public static final String MONEY_GIFT_TITLE = "MONEY";
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -45,22 +45,22 @@ public class Gift implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "DATE_CREAT", updatable = false)
     private Date dateCreated;
-    
+
     @NotNull
     String title;
-    
+
     String description;
-    
+
     String imageUrl;
-    
+
     @NotNull
     Float price;
-    
+
     @NotNull
     String addedBy;
-    
+
     boolean available = true;
-    
+
     String gifter;
 
     // ----------------------------------------------
@@ -120,7 +120,6 @@ public class Gift implements Serializable {
         this.addedBy = addedBy;
     }
 
-
     public String getGifter() {
         return gifter;
     }
@@ -145,9 +144,7 @@ public class Gift implements Serializable {
         this.imageUrl = imageUrl;
     }
 
-    
     // ----------------------------------------------
-    
     @PrePersist
     void onPrePersist() {
         dateCreated = new Date();
@@ -155,11 +152,10 @@ public class Gift implements Serializable {
     }
 
     @PreUpdate
-    void onPreUpdate(){
+    void onPreUpdate() {
         dateModified = new Date();
-        
-    }
 
+    }
 
     // ----------------------------------------------
     @Override

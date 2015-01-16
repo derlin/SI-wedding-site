@@ -29,12 +29,21 @@ app.controller('MainController',
                     GiftFactory.add(gift, $scope.refresh);
                     console.log("added");
                 };
+                
+                $scope.giveGift = function (gift) {
+                    $scope.clicks++;
+                    console.log(gift.id);
+                    gift.available = false;
+                    GiftFactory.update(gift, $scope.refresh);
+                    console.log("updated");
+                };
 
                 $scope.resetForm = function () {
                     console.log($scope.cur_gift);
                     $scope.cur_gift = angular.copy({ title: "", description: "", price: "", imageurl: "", gifter: ""});
                 };
 
+                $scope.search_price = {}
                 // first load: get data
                 $scope.refresh();
             }]);
