@@ -18,6 +18,7 @@ wedApp.config(['$routeProvider',
         controller: 'GbController'
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
+        templateUrl: 'partials/welcome.html'
       });
   }]);

@@ -88,3 +88,7 @@ thead {
         display: inline !important;
         width: auto !important;
     }
+    
+    .align-center {
+        text-align: center;
+    }
