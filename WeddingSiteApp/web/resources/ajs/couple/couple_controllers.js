@@ -2,17 +2,40 @@ var app = angular.module('wed.couple.controllers', []);
 
 
 app.filter("priceFilter", function() {
-  return function(input, min, max) {
+  return function(input, price) {
       
-    min = min | 0;
-    max = max | Number.MAX_VALUE;
-
-    return input.filter(function(gift) {
-        console.log(min);
-      return (gift.price >= min) && (gift.price >= max);
+    if(!price) price = {};
+    
+    console.log(price);
+    min = (price && parseInt(price.min)) | 0;
+    max = (price && parseInt(price.max)) | Number.MAX_VALUE;
+      if(max <= min){
+        max = Number.MAX_VALUE;
+    }
+    
+    var filtered = [];
+    
+    angular.forEach(input, function(gift){
+        console.log(gift);
+        if((gift.price >= min) && (gift.price <= max)){
+            filtered.push(gift);
+        }
     });
+    console.log(filtered);
+    return filtered;
   }
-});
+})
+
+.filter('amountRange', function() {
+    return function(input, amount) {
+      var filteredAmount = [];
+      angular.forEach(input, function(item){
+        if(amount && (item.price >= amount.minAmount && item.price <=  amount.maxAmount))
+        filteredAmount.push(item);
+      });
+      return filteredAmount.length>0 ? filteredAmount : input
+    };
+  });
 
 //app.filters.filter("priceFilter", function() {
 //  return function(input, min, max) {
@@ -110,6 +133,5 @@ app.controller('MainController',
 
                 // first load: get data
                 $scope.refresh();
-                $scope.search_price_min = 0;
-                $scope.search_price_max = 10000;
+                $scope.search_price = { min: 0, max: "" };
             }]);

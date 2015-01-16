@@ -11,10 +11,10 @@
         <button type="button" class="btn btn-default" ng-click="search.available = true">Still available</button>
         <button type="button" class="btn btn-default" ng-click="search.available = false">Offered</button>
     </div>
-    <!--    <div class="form-group">
-            Price range <input type="number" ng-model="search_price_min" /> to 
-            <input type="number" ng-model="search_price_max" />
-        </div>-->
+        <div class="form-group">
+            Price range <input type="number"   ng-model="search_price.min" /> to 
+            <input type="number" ng-model="search_price.max" />
+        </div>
 
 </form>
 </div>
@@ -32,7 +32,8 @@
             <td></td>
         </tr>
     </thead>
-    <tr ng-repeat="i in gifts| filter:priceFilter: search_price_min:search_price_max | filter: search">
+    <!--<tr ng-repeat="i in gifts| amountRange:amount | filter: search">-->
+    <tr ng-repeat="i in gifts| priceFilter:search_price | filter: search">
         <td>{{i.title}}</td>
         <td>{{i.description}}</td>
         <td>{{i.price}}</td>
@@ -46,18 +47,3 @@
 
     </tr>
 </table>
-
-
-<style type="text/css">
-    .gift-item {
-        padding: 4px 10px;
-        margin: 20px 0;
-        border: 1px solid #eee;
-        border-left-width: 5px;
-        border-radius: 3px;
-    } 
-
-    .gift-item .button-bar span {
-        margin: auto 4px;
-    }
-</style>
