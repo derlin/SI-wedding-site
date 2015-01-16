@@ -69,3 +69,22 @@ thead {
 .well .form-control {
     border-color: #ffb8dd;
 }
+
+
+/* admin page: gifts table */
+    .gift-item {
+        padding: 4px 10px;
+        margin: 20px 0;
+        border: 1px solid #eee;
+        border-left-width: 5px;
+        border-radius: 3px;
+    } 
+
+    .gift-item .button-bar span {
+        margin: auto 4px;
+    }
+    
+    .inline {
+        display: inline !important;
+        width: auto !important;
+    }

@@ -1,6 +1,7 @@
 var wedApp = angular.module('wed.couple', 
     ['ngRoute',
         'wed.services', 
+        'wed.filters',
         'wed.couple.controllers', 
         'wed.directives']);
 

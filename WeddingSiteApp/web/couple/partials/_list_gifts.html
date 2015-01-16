@@ -1,22 +1,29 @@
 <div class="row">
-<form class="form">   
-    <div class="form-group">
-        <label for="searchText" class="col-md-1 control-label">Search</label> 
-        <div class="col-md-4">
-            <input id="searchText" class="form-control" ng-model="search.$">
-        </div>
-    </div>
-    <div class="btn-group col-md-4" role="group" aria-label="...">
-        <button type="button" class="btn btn-default" ng-click="search.available = undefined">All</button>
-        <button type="button" class="btn btn-default" ng-click="search.available = true">Still available</button>
-        <button type="button" class="btn btn-default" ng-click="search.available = false">Offered</button>
-    </div>
+    <form class="form">   
         <div class="form-group">
-            Price range <input type="number"   ng-model="search_price.min" /> to 
-            <input type="number" ng-model="search_price.max" />
+            <label for="searchText" class="col-md-1 control-label">Search</label> 
+            <div class="col-md-4">
+                <input id="searchText" class="form-control" ng-model="search.$">
+            </div>
         </div>
 
-</form>
+        <div class="form-group" style="padding-left:15px">
+            <div>
+                <span style="font-weight:bold">Price range</span>
+                <input class="inline form-control" type="number" ng-model="search_price.min" /> to 
+                <input class="inline form-control" type="number" ng-model="search_price.max" />
+            </div>
+        </div>
+
+
+        <div class="btn-group col-md-4" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" ng-click="search.available = undefined">All</button>
+            <button type="button" class="btn btn-default" ng-click="search.available = true">Still available</button>
+            <button type="button" class="btn btn-default" ng-click="search.available = false">Offered</button>
+        </div>
+
+
+    </form>
 </div>
 
 <hr />
