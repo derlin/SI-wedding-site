@@ -15,40 +15,44 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4" ng-repeat="g in gifts| priceFilter:search_price | filter: search">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{g.title}}</h3>
+<div class='well well-sm' style="clear: both; float: bottom">
+    <bouton class='btn btn-default' ng-click="show_money = !show_money">Give money</bouton>
+    <div ng-include="'partials/_gift_money.html'" ng-show='show_money'/>  
+</div> 
+
+<div class="col-md-4" ng-repeat="g in gifts| priceFilter:search_price | filter: search.available = true | filter: search">
+    <div class="row"></div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{g.title}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="gift-image" ng-if="g.imageUrl">
+                <img style="width: 80%; display: block; margin: 0 auto; " src="{{g.imageUrl}}" alt="image">
             </div>
-            <div class="panel-body">
-                <div class="gift-image" ng-if="g.imageUrl">
-                    <img style="width: 80%; display: block; margin: 0 auto; " src="{{g.imageUrl}}" alt="image">
-                </div>
-                <div class="gift-image" ng-if="!g.imageUrl">
-                    <img style="width: 80%; display: block; margin: 0 auto; " src="http://www.coupdepouce.com/img/photos/biz/cdp/cadeau-mariage-410.jpg" alt="image">
-                </div>
-                <div class="gift-descr">
-                    <i>{{g.description}}</i>
-                </div>
-                <div style='text-align: center'><h3>{{g.price}} CHF</h3></div>
+            <div class="gift-image" ng-if="!g.imageUrl">
+                <img style="width: 80%; display: block; margin: 0 auto; " src="http://www.coupdepouce.com/img/photos/biz/cdp/cadeau-mariage-410.jpg" alt="image">
             </div>
-            <div class="panel-footer">
-                <div>
-                    <form>
-                        <div class="form-group">
-                            <label for="inputSign" class="col-sm-2 control-label">De: </label>
-                            <div class="col-sm-5">
-                                <input type="text" ng-model="g.gifter" class="form-control" id="inputSign" placeholder="Nom">
-                            </div>
+            <div class="gift-descr">
+                <i>{{g.description}}</i>
+            </div>
+            <div style='text-align: center'><h3>{{g.price}} CHF</h3></div>
+        </div>
+        <div class="panel-footer">
+            <div>
+                <form>
+                    <div class="form-group">
+                        <label for="inputSign" class="col-sm-2 control-label">From: </label>
+                        <div class="col-sm-5">
+                            <input type="text" ng-model="g.gifter" class="form-control" id="inputSign" placeholder="Nom">
                         </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-primary" ng-click="giveGift(g)">Give</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" ng-click="giveGift(g)">Give</button>
+                    </div>
+                </form>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
@@ -57,9 +61,4 @@
 <div class='well well-sm' style="clear: both; float: bottom">
     <bouton class='btn btn-default' ng-click="show_add = !show_add">Add a gift</bouton>
     <div ng-include="'partials/_gift_add.html'" ng-show='show_add'/> 
-</div> 
-
-<div class='well well-sm' style="clear: both; float: bottom">
-    <bouton class='btn btn-default' ng-click="show_money = !show_money">Give money</bouton>
-    <div ng-include="'partials/_gift_money.html'" ng-show='show_money'/>  
 </div> 
