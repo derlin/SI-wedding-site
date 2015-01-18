@@ -57,7 +57,7 @@ app.controller('MainController',
 
                 $scope.resetForm = function () {
                     console.log($scope.cur_gift);
-                    $scope.cur_gift = angular.copy({title: "", description: "", price: "", imageurl: "", gifter: ""});
+                    $scope.cur_gift = null;
                 };
 
                 $scope.isGiftValid = function (gift) {
