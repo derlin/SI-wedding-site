@@ -6,7 +6,6 @@ app.controller('MainController',
 
                 $scope.refresh = function () {
                     $scope.gifts = GiftFactory.getAll(function (items) {
-                        console.log(items);
                         var cnt = 0;
                         $scope.gifts.forEach(function(g){
                             if(g.available) cnt +=1;
@@ -50,6 +49,7 @@ app.controller('MainController',
                 };
 
                 $scope.giveGift = function (gift) {
+                    $scope.clicks++;
                     gift.available = false;
                     GiftFactory.update(gift, $scope.refresh);
                     console.log("updated");
