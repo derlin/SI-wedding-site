@@ -7,6 +7,12 @@ app.controller('MainController',
                 $scope.refresh = function () {
                     $scope.gifts = GiftFactory.getAll(function (items) {
                         console.log(items);
+                        var cnt = 0;
+                        $scope.gifts.forEach(function(g){
+                            if(g.available) cnt +=1;
+                        });
+                        
+                        $scope.availableCnt = cnt;
                     });
                 };
 
@@ -27,7 +33,8 @@ app.controller('MainController',
                     console.log(gift);
                     GiftFactory.add(gift, $scope.refresh);
                     console.log("added");
-                    $scope.resetForm();
+                    $scope.cur_gift_add = null;
+                    $scope.showThanks();
                 };
                 
                 $scope.addMoneyGift = function (gift) {
@@ -38,17 +45,21 @@ app.controller('MainController',
                     console.log(gift);
                     GiftFactory.add(gift, $scope.refresh);
                     console.log("added");
-                    $scope.resetForm();
+                    $scope.cur_gift_money = null;
+                    $scope.showThanks();
                 };
 
                 $scope.giveGift = function (gift) {
-                    $scope.clicks++;
-                    console.log(gift.id);
                     gift.available = false;
                     GiftFactory.update(gift, $scope.refresh);
                     console.log("updated");
+                    $scope.showThanks();
                 };
 
+                $scope.showThanks = function(){
+                   $('#showThankYouModal').click(); 
+                };
+                
                 $scope.giveGiftConf = function (gift) {
                     console.log("give confirmation");
                     $scope.cur_gift = angular.copy(gift);

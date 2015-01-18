@@ -1,23 +1,23 @@
 <hr />
 <form name="giftMoneyForm" class="form-horizontal" novalidate>
     <div class="form-group">
-        <label for="inputPrice" class="col-sm-2 control-label">Amount</label>
+        <label for="inputPrice1" class="col-sm-2 control-label">Amount</label>
         <div class="col-sm-10">
-            <input type="number" ng-model="cur_gift.price" class="form-control" id="inputPrice" placeholder="Montant">
+            <input type="number" ng-model="cur_gift_money.price" class="form-control" id="inputPrice1" placeholder="price">
         </div>
     </div>
     
     <div class="form-group">
-        <label for="inputSign" class="col-sm-2 control-label">From</label>
+        <label for="inputSign1" class="col-sm-2 control-label">From</label>
         <div class="col-sm-10">
-            <input type="text" ng-model="cur_gift.gifter" class="form-control" id="inputSign" placeholder="Nom">
+            <input type="text" ng-model="cur_gift_money.gifter" class="form-control" id="inputSign1" placeholder="name">
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="button" class="btn btn-primary" ng-show="isMoneyGiftValid(cur_gift)" 
-                    ng-click="addMoneyGift(cur_gift)">Save</button>
-            <button  type="button" class="btn btn-primary" ng-click="resetForm()">Reset</button>
+            <button  type="button" class="btn btn-default" ng-click="cur_gift_money = null">Reset</button>
+            <button type="button" class="btn btn-primary" ng-show="isMoneyGiftValid(cur_gift_money)" 
+                    ng-click="addMoneyGift(cur_gift_money)">Give!</button>
         </div>
     </div>
 </form>

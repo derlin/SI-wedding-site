@@ -3,38 +3,38 @@
     <div class="form-group">
         <label for="inputTitle" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-            <input type="text" ng-model="cur_gift.title" class="form-control" id="inputTitle" placeholder="Titre">
+            <input type="text" ng-model="cur_gift_add.title" class="form-control" id="inputTitle" placeholder="Titre">
         </div>
     </div>
     <div class="form-group">
         <label for="inputMsg" class="col-sm-2 control-label">Description</label>
         <div class="col-sm-10">
-            <textarea ng-model="cur_gift.description" class="form-control" id="inputMsg" placeholder="Description"></textarea>
+            <textarea ng-model="cur_gift_add.description" class="form-control" id="inputMsg" placeholder="Description"></textarea>
         </div>
     </div>   
     <div class="form-group">
         <label for="inputPrice" class="col-sm-2 control-label">Price</label>
         <div class="col-sm-10">
-            <input type="number" ng-model="cur_gift.price" class="form-control" id="inputPrice" placeholder="Prix">
+            <input type="number" ng-model="cur_gift_add.price" class="form-control" id="inputPrice" placeholder="Prix">
         </div>
     </div>
     <div class="form-group">
         <label for="inputImg" class="col-sm-2 control-label">Image</label>
         <div class="col-sm-10">
-            <input type="url" ng-model="cur_gift.imageUrl" class="form-control" id="inputImg" placeholder="URL de l'image">
+            <input type="url" ng-model="cur_gift_add.imageUrl" class="form-control" id="inputImg" placeholder="URL de l'image">
         </div>
     </div>
     <div class="form-group">
         <label for="inputSign" class="col-sm-2 control-label">From</label>
         <div class="col-sm-10">
-            <input type="text" ng-model="cur_gift.gifter" class="form-control" id="inputSign" placeholder="Nom">
+            <input type="text" ng-model="cur_gift_add.gifter" class="form-control" id="inputSign" placeholder="Nom">
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="button" class="btn btn-primary" ng-show="isGiftValid(cur_gift)" 
-                    ng-click="addPersonalGift(cur_gift)">Save</button>
-            <button  type="button" class="btn btn-primary" ng-click="resetForm()">Reset</button>
+            <button type="button" class="btn btn-primary" ng-show="isGiftValid(cur_gift_add)" 
+                    ng-click="addPersonalGift(cur_gift_add)">Save</button>
+            <button  type="button" class="btn btn-primary" ng-click="cur_gift_add = null">Reset</button>
         </div>
     </div>
 </form>

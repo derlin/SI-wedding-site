@@ -1,26 +1,38 @@
 
-<form class="form-horizontal">
-    <div class="form-group">
-        <label for="searchText" class="col-md-1 control-label">Search</label> 
-        <div class="col-md-4">
-            <input id="searchText" class="form-control" ng-model="search.$">
-        </div>
-    </div>
-</form>
+<!--info if no gifts available-->
+<div class="alert alert-info" role="alert" ng-hide="availableCnt > 0">
+    <strong>Heads up!</strong> It seems like all the gifts have already been selected. But you can still add your own or leave us
+    some money for a cocktail during the honeymoon!
+</div>
 
-<div class="form-group" style="padding-left:15px">
-    <div>
-        <span style="font-weight:bold">Price range</span>
-        <input class="inline form-control" type="number" ng-model="search_price.min" /> to 
-        <input class="inline form-control" type="number" ng-model="search_price.max" />
+<!--search fields-->
+<div ng-show="availableCnt > 0">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="searchText" class="col-md-1 control-label">Search</label> 
+            <div class="col-md-4">
+                <input id="searchText" class="form-control" ng-model="search.$">
+            </div>
+        </div>
+    </form>
+
+    <div class="form-group" style="padding-left:15px">
+        <div>
+            <span style="font-weight:bold">Price range</span>
+            <input class="inline form-control" type="number" ng-model="search_price.min" /> to 
+            <input class="inline form-control" type="number" ng-model="search_price.max" />
+        </div>
     </div>
 </div>
 
+<!--add money well-->
 <div class='well well-sm' style="clear: both; float: bottom">
     <bouton class='btn btn-default' ng-click="show_money = !show_money">Give money</bouton>
     <div ng-include="'partials/_gift_money.html'" ng-show='show_money'/>  
 </div> 
 
+
+<!--available gifts-->
 <div class="col-md-4" ng-repeat="g in gifts| priceFilter:search_price | filter: search.available = true | filter: search">
     <div class="row"></div>
     <div class="panel panel-info">
@@ -37,7 +49,7 @@
             <div class="gift-descr">
                 <i>{{g.description}}</i>
             </div>
-            <div style='text-align: center'><h3>{{g.price | currency:"CHF ":2}}</h3></div>
+            <div style='text-align: center'><h3>{{g.price| currency:"CHF ":2}}</h3></div>
         </div>
         <div class="panel-footer">
             <div>
@@ -58,9 +70,11 @@
     </div>
 </div>
 
-    <div ng-include="'partials/_gift_give_gift.html'" ></div>
-
+<!--add custom gift-->
 <div class='well well-sm' style="clear: both; float: bottom">
     <bouton class='btn btn-default' ng-click="show_add = !show_add">Add a gift</bouton>
     <div ng-include="'partials/_gift_add.html'" ng-show='show_add'/> 
 </div> 
+
+<!--thank you and add gift popup-->
+<div ng-include="'partials/_gift_give_gift.html'" ></div>
